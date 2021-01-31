@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:12
+    restart: always
+    container_name: udacity_project_1_postgres
+    environment:
+      POSTGRES_DB: studentdb
+      POSTGRES_USER: student
+      POSTGRES_PASSWORD: student
+    ports:
+      - 127.0.0.1:5432:5432
