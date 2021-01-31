@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+
+  cassandra:
+    image: bitnami/cassandra:3
+    restart: always
+    container_name: udacity_project_1b_cassandra
+    ports:
+      - 127.0.0.1:9042:9042

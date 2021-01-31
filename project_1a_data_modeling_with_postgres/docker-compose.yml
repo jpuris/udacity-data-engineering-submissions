@@ -5,7 +5,7 @@ services:
   db:
     image: postgres:12
     restart: always
-    container_name: udacity_project_1_postgres
+    container_name: udacity_project_1a_postgres
     environment:
       POSTGRES_DB: studentdb
       POSTGRES_USER: student
