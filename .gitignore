@@ -130,3 +130,6 @@ dmypy.json
 
 # Intellij idea
 .idea/
+
+# temp files
+project_1b_data_modeling_with_cassandra/event_datafile_new.csv
