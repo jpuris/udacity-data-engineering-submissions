@@ -131,5 +131,10 @@ dmypy.json
 # Intellij idea
 .idea/
 
+# Project 1b
 # temp files
 project_1b_data_modeling_with_cassandra/event_datafile_new.csv
+
+# Project 2
+project_2_data_warehouse/dwh.cfg
+project_2_data_warehouse/manage_cluster.cfg
