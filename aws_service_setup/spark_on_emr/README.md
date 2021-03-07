@@ -25,7 +25,8 @@ The key file will be created in your current directory.
 aws --profile $AWS_PROFILE --region $AWS_REGION ec2 create-key-pair \
 --key-name $AWS_EC2_KEYPAIR_NAME \
 --query "KeyMaterial" \
---output text > $AWS_EC2_KEYPAIR_NAME.pem
+--output text > $AWS_EC2_KEYPAIR_NAME.pem && \
+chmod 400 $AWS_EC2_KEYPAIR_NAME.pem
 ```
 
 ### Listing existing EMR clusters
