@@ -69,9 +69,18 @@ vim dl.cfg
 ### Upload the input data folder to your S3 bucket that resides in same region as EMR cluster
 You can do this via AWS web console or use the following AWS CLI command
 ```shell
-aws --profile YOUR_AWS_CONFIGURATION_PROFILE s3 cp --recursive input_data s3://YOUR_S3_BUCKET/
+aws --profile YOUR_AWS_CONFIGURATION_PROFILE s3 cp --recursive input_data s3://YOUR_S3_BUCKET/input_data
 ```
 Note: Make sure you have created the directory for OUTPUT_DIR (See configuration file)
+
+### Update etl.py with proper input and output paths
+Replace
+```shell
+    # The directory paths for Sparkify input and output data
+    input_data = 's3://udacity-data-engineer-nanodegree/project_3_data_lake/input_data/'
+    output_data = 's3://udacity-data-engineer-nanodegree/project_3_data_lake/output_data/'
+```
+With valid paths you have access to.
 
 ### Upload the pipeline file and configuration to EMR cluster's master node
 ```shell
