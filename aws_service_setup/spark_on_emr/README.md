@@ -51,8 +51,8 @@ aws --profile $AWS_PROFILE --region $AWS_REGION emr create-cluster \
 ```
 
 ### Finding the hostname of Master node
-Replace `CLUSTER_ID` with the cluster's id you want to describe
 ```shell
+# Replace CLUSTER_ID with the cluster's id you want to describe
 aws --profile $AWS_PROFILE emr --region $AWS_REGION describe-cluster \
 --cluster-id CLUSTER_ID \
 | jq '.Cluster.MasterPublicDnsName'
@@ -61,6 +61,6 @@ aws --profile $AWS_PROFILE emr --region $AWS_REGION describe-cluster \
 ### Shut down of an EMR cluster
 This will terminate an EMR cluster with specified Cluster ID
 ```shell
-# Replace <CLUSTER-ID> with proper cluster id you want to terminate
-aws --profile $AWS_PROFILE emr --region $AWS_REGION terminate-clusters --cluster-ids <CLUSTER-ID>
+# Replace CLUSTER_ID with proper cluster id you want to terminate
+aws --profile $AWS_PROFILE emr --region $AWS_REGION terminate-clusters --cluster-ids CLUSTER_ID
 ```
