@@ -10,12 +10,12 @@ In this project, you'll apply what you've learned on Spark and data lakes to bui
 ## Files
 - [etl.py](etl.py) - The pipeline the spark cluster is running is a single python file
 - [dl.sample.cfg](dl.sample.cfg) - Pipeline configuration example
-- [data/](data) - The data you will need to upload to an S3 bucket in same region as your EMR cluster 
+- [input_data/](input_data) - The data you will need to upload to an S3 bucket in same region as your EMR cluster
 
 ## Data lake and data sets
 You'll be working with two datasets
-- Song data: [data/song_data](data/song_data)
-- Log data: [data/log_data](data/log_data)
+- Song data: [input_data/song_data](input_data/song_data)
+- Log data: [input_data/log_data](input_data/log_data)
 
 ### Song Dataset
 The first dataset is a subset of real data from the Million Song Dataset. Each file is in JSON format and contains metadata about a song and the artist of that song. The files are partitioned by the first three letters of each song's track ID. For example, here are filepaths to two files in this dataset.
@@ -23,7 +23,7 @@ The first dataset is a subset of real data from the Million Song Dataset. Each f
 song_data/A/B/C/TRABCEI128F424C983.json
 song_data/A/A/B/TRAABJL12903CDCF1A.json
 ```
-And below is an example of what a single song file, `TRAABJL12903CDCF1A.json`, looks like.
+Below is an example of what a single song file, `TRAABJL12903CDCF1A.json`, looks like.
 ```json
 {
     "num_songs": 1,
@@ -47,11 +47,13 @@ The log files in the dataset you'll be working with are partitioned by year and 
 log_data/2018/11/2018-11-12-events.json
 log_data/2018/11/2018-11-13-events.json
 ```
-And below is an example of what the data in a log file, 2018-11-12-events.json, looks like.
+Below is an example of what the data in a log file, 2018-11-12-events.json, looks like.
 ![log_data](img/log_data.png)
 
 ## How to run this
 Note: This project utilises a spark cluster running on AWS EMR service. Fore more instructions on how to set up an EMR cluster from scratch, see [Spark on EMR](../aws_service_setup/spark_on_emr/README.md) instructions.
+
+Warning! Do not forget to shut down your AWS cluster. EMR should never be left running idle. You can find shutdown from CLI instructions in [Spark on EMR](../aws_service_setup/spark_on_emr/README.md).
 
 ### Update configuration file
 ```shell
@@ -65,9 +67,9 @@ vim dl.cfg
 ```
 
 ### Upload the input data folder to your S3 bucket that resides in same region as EMR cluster
-You can do this via AWS web console or use the following AWS CLI command 
+You can do this via AWS web console or use the following AWS CLI command
 ```shell
-aws --profile YOUR_AWS_CONFIGURATION_PROFILE s3 cp --recursive input_data s3://YOUR_S3_BUCKET/ 
+aws --profile YOUR_AWS_CONFIGURATION_PROFILE s3 cp --recursive input_data s3://YOUR_S3_BUCKET/
 ```
 Note: Make sure you have created the directory for OUTPUT_DIR (See configuration file)
 
