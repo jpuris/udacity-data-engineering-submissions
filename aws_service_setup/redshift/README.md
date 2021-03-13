@@ -13,7 +13,7 @@ The below variables will be used in setting up the Redshift cluster. AWS profile
 
 ```shell
 AWS_PROFILE='admin'
-AWS_REGION='eu-north-1'
+AWS_REGION='us-west-2' # udacity-dend bucket is located in this region
 # A unique identifier for the cluster.
 REDSHIFT_CLUSTER_IDENTIFIER='udacity-redshift-cluster'
 # The type of the cluster. When cluster type is specified as
