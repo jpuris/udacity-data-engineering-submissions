@@ -134,6 +134,11 @@ dmypy.json
 # Do not commit *.pem files
 *.pem
 
+# Udacity projects
+# Include the root .env file only
+# Fixes https://github.com/Microsoft/vscode-python/issues/3840
+!.env
+*/.env
 # Project 1b
 # temp files
 project_1b_data_modeling_with_cassandra/event_datafile_new.csv
