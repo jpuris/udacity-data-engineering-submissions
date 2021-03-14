@@ -128,9 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Intellij idea
-.idea/
-
 # VS CODE
 .vscode
 
@@ -150,3 +147,6 @@ project_2_data_warehouse/manage_cluster.cfg
 
 # Project 3
 project_3_data_lake/dl.cfg
+
+# Project 4
+project_4_data_pipelines/airflow/logs
