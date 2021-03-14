@@ -1,0 +1,13 @@
+{
+    "python.pythonPath": "venv/bin/python",
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintArgs": [
+        "--disable=C0114",
+        "--disable=W0104"
+    ],
+    "python.autoComplete.extraPaths": [
+        "project_4_data_pipelines/airflow/plugins"
+    ]
+}
