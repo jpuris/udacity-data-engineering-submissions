@@ -23,13 +23,13 @@ class StageToRedshiftOperator(BaseOperator):
     @apply_defaults
     def __init__(
         self,
-        redshift_conn_id=None,
-        aws_credential_id=None,
-        table_name=None,
-        s3_bucket=None,
-        s3_key=None,
-        file_format=None,
-        log_json_file=None,
+        redshift_conn_id: str,
+        aws_credential_id: str,
+        table_name: str,
+        s3_bucket: str,
+        s3_key: str,
+        file_format: str,
+        log_json_file: str = None,
         **kwargs,
     ):
 

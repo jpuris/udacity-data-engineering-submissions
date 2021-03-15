@@ -3,12 +3,12 @@ from operators import LoadDimensionOperator
 
 
 def load_dim_subdag(
-    parent_dag_name,
-    task_id,
-    redshift_conn_id,
-    sql_statement,
-    delete_load,
-    table_name,
+    parent_dag_name: str,
+    task_id: str,
+    redshift_conn_id: str,
+    sql_statement: str,
+    do_truncate: bool,
+    table_name: str,
     **kwargs,
 ):
     # TODO: docstring
@@ -23,7 +23,7 @@ def load_dim_subdag(
         dag=dag,
         redshift_conn_id=redshift_conn_id,
         sql_query=sql_statement,
-        delete_load=delete_load,
+        do_truncate=do_truncate,
         table_name=table_name,
     )
 

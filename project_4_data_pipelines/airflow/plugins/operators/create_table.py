@@ -12,7 +12,11 @@ class CreateTableOperator(BaseOperator):
     ui_color = '#e67e22'
 
     @apply_defaults
-    def __init__(self, redshift_conn_id=None, **kwargs):
+    def __init__(
+        self,
+        redshift_conn_id: str,
+        **kwargs,
+    ):
 
         super().__init__(**kwargs)
         self.redshift_conn_id = redshift_conn_id

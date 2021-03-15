@@ -12,7 +12,12 @@ class DataQualityOperator(BaseOperator):
     ui_color = '#89DA59'
 
     @apply_defaults
-    def __init__(self, redshift_conn_id=None, tables=None, **kwargs):
+    def __init__(
+        self,
+        redshift_conn_id: str,
+        tables: str,
+        **kwargs,
+    ):
 
         super().__init__(**kwargs)
         self.redshift_conn_id = redshift_conn_id

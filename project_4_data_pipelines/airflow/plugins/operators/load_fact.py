@@ -12,7 +12,12 @@ class LoadFactOperator(BaseOperator):
     ui_color = '#F98866'
 
     @apply_defaults
-    def __init__(self, redshift_conn_id=None, sql_query=None, **kwargs):
+    def __init__(
+        self,
+        redshift_conn_id: str,
+        sql_query: str,
+        **kwargs,
+    ) -> None:
 
         super().__init__(**kwargs)
         self.redshift_conn_id = redshift_conn_id
