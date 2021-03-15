@@ -71,3 +71,28 @@ Before you can run the provided pipeline, one must first configure following res
 - sparkify_s3_file_format - Data file format
 
 ![](images/airflow_variables_example.jpg)
+
+## Development
+1. Clone the repository
+```shell
+git clone https://github.com/jpuris/udacity-data-engineering-submissions.git
+cd udacity-data-engineering-submissions
+```
+2. Create virtual environment and activate it
+```shell
+# install virtualenv package
+python3 -m pip install virtualenv
+
+# create new virtual env
+virtualenv venv
+
+# activate virtual env
+source venv/bin/activate
+```
+3. Install dependencies
+```shell
+cd project_4_data_pipelines
+
+python -m pip install -r requirements.txt
+python -m pip install -r requirements-dev.txt
+```
