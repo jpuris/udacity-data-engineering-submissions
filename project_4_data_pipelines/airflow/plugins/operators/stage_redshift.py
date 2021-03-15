@@ -5,9 +5,19 @@ from airflow.utils.decorators import apply_defaults
 
 
 class StageToRedshiftOperator(BaseOperator):
-    # TODO: docstring
     """
-        docstring
+    Run a redshift COPY command.
+    More info on the comand can be found in
+    https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html
+
+    Keyword arguments:
+    redshift_conn_id  -- Airflow connection name for Redshift detail
+    aws_credential_id -- Airflow connection name for AWS detail
+    table_name        -- Destination table name
+    s3_bucket         -- S3 bucket name to load the files from
+    s3_key            -- S3 path to directory to crawl
+    file_format       -- S3 file format
+    log_json_file     -- S3 file schema (defaults to 'auto' behavior)
     """
 
     ui_color = '#00aae4'

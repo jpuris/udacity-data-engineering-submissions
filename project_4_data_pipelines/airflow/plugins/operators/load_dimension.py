@@ -4,9 +4,14 @@ from airflow.utils.decorators import apply_defaults
 
 
 class LoadDimensionOperator(BaseOperator):
-    # TODO: docstring
     """
-        docstring
+    Runs query to load data into a dimension table, based on fact table.
+
+    Keyword arguments:
+    redshift_conn_id  -- Airflow connection name for Redshift detail
+    sql_query         -- Query to run
+    do_truncate       -- Should the table be truncated before running query
+    table_name        -- Target table name. Used for info purposes only
     """
 
     ui_color = '#660066'
@@ -29,16 +34,15 @@ class LoadDimensionOperator(BaseOperator):
 
     def execute(self, context):
         redshift_hook = PostgresHook(postgres_conn_id=self.redshift_conn_id)
+
         if self.do_truncate:
-            self.log.info(
-                'do_truncate operation set to true... '
-                'Running truncate on table %s', self.table_name,
-            )
+            self.log.info('Running truncate on table %s', self.table_name)
             redshift_hook.run(f'TRUNCATE {self.table_name}')
 
         self.log.info(
             'Running query to load data into '
             'dim table %s', self.table_name,
         )
+
         redshift_hook.run(self.sql_query)
         self.log.info('Dim table %s loaded.', self.table_name)

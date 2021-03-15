@@ -4,9 +4,12 @@ from airflow.utils.decorators import apply_defaults
 
 
 class CreateTableOperator(BaseOperator):
-    # TODO: docstring
     """
-        docstring
+    Runs the provided SQL file to create sparkify database tables.
+    File is '/opt/airflow/plugins/helpers/create_tables.sql
+
+    Keyword arguments:
+    redshift_conn_id  -- Airflow connection name for Redshift detail
     """
 
     ui_color = '#e67e22'

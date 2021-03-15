@@ -4,9 +4,12 @@ from airflow.utils.decorators import apply_defaults
 
 
 class LoadFactOperator(BaseOperator):
-    # TODO: docstring
     """
-        docstring
+    Runs provided SQL query on Redshift cluster.
+
+    Keyword arguments:
+    redshift_conn_id  -- Airflow connection name for Redshift detail
+    sql_query         -- Query to run
     """
 
     ui_color = '#F98866'

@@ -4,9 +4,13 @@ from airflow.utils.decorators import apply_defaults
 
 
 class DataQualityOperator(BaseOperator):
-    # TODO: docstring
     """
-        docstring
+    Runs data quality checks:
+    - target table must have row count greater than 0
+
+    Keyword arguments:
+    redshift_conn_id  -- Airflow connection name for Redshift detail
+    tables            -- A list of tables to run the checks on
     """
 
     ui_color = '#89DA59'
@@ -15,7 +19,7 @@ class DataQualityOperator(BaseOperator):
     def __init__(
         self,
         redshift_conn_id: str,
-        tables: str,
+        tables: list,
         **kwargs,
     ):
 
