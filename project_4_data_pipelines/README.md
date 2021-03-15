@@ -15,7 +15,7 @@ Pipeline name is `sparkify_data_pipeline`
 3. Transform the data in staging tables into a star schema
 4. Perform data validation and data quality checks
 
-[](images/sparkify_data_pipeline.jpg)
+![](images/sparkify_data_pipeline.jpg)
 
 ### Additional requirements
 - The DAG should not have any dependencies on past runs
@@ -61,7 +61,7 @@ Before you can run the provided pipeline, one must first configure following res
 - Redshift
 - AWS
 
-![](images/sparkify_data_pipeline.jpg)
+![](images/airflow_connections_example.jpg)
 
 #### Variables
 - sparkify_s3_bucket - S3 bucket containing song and log data
