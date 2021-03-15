@@ -4,8 +4,9 @@ from airflow.utils.decorators import apply_defaults
 
 
 class CreateTableOperator(BaseOperator):
+    # TODO: docstring
     """
-    TODO: docstring
+        docstring
     """
 
     ui_color = '#e67e22'
@@ -20,6 +21,7 @@ class CreateTableOperator(BaseOperator):
         self.log.info('Creating Postgres SQL Hook')
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
 
+        # TODO: the path to create_tables.sql needs to be dynamic
         self.log.info('Executing creating tables in Redshift.')
         queries = open(
             '/opt/airflow/plugins/helpers/create_tables.sql',

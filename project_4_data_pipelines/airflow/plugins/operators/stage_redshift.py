@@ -5,8 +5,9 @@ from airflow.utils.decorators import apply_defaults
 
 
 class StageToRedshiftOperator(BaseOperator):
+    # TODO: docstring
     """
-    TODO: docstring
+        docstring
     """
 
     ui_color = '#00aae4'

@@ -5,8 +5,9 @@ from airflow.plugins_manager import AirflowPlugin
 
 # Defining the plugin class
 class SparkifyPlugin(AirflowPlugin):
+    # TODO: docstring
     """
-        TODO: docstring
+        docstring
     """
     name = 'sparkify_plugin'
     operators = [

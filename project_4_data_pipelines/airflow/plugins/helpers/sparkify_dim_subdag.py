@@ -11,8 +11,9 @@ def load_dim_subdag(
     table_name,
     **kwargs,
 ):
+    # TODO: docstring
     """
-    TODO: docstring
+        docstring
     """
 
     dag = DAG(f'{parent_dag_name}.{task_id}', **kwargs)
