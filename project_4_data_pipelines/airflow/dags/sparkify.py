@@ -2,6 +2,7 @@ from datetime import datetime
 from datetime import timedelta
 
 from airflow import DAG
+from airflow.models import Variable
 from airflow.operators.dummy import DummyOperator
 from airflow.operators.subdag_operator import SubDagOperator
 from helpers import load_dim_subdag
@@ -10,12 +11,6 @@ from operators import CreateTableOperator
 from operators import DataQualityOperator
 from operators import LoadFactOperator
 from operators import StageToRedshiftOperator
-
-
-S3_BUCKET = 'udacity-data-engineer-nanodegree'
-S3_SONG_KEY = 'project_4_data_pipelines/song_data'
-S3_LOG_KEY = 'project_4_data_pipelines/log_data'
-LOG_JSON_FILE = 'project_4_data_pipelines/log_json_path.json'
 
 DAG_NAME = 'sparkify_data_pipeline'
 
@@ -53,10 +48,10 @@ create_tables_in_redshift = CreateTableOperator(
 stage_events_to_redshift = StageToRedshiftOperator(
     task_id='Stage_events',
     table_name='staging_events',
-    s3_bucket=S3_BUCKET,
-    s3_key=S3_LOG_KEY,
+    s3_bucket=Variable.get('sparkify_s3_bucket'),
+    s3_key=Variable.get('sparkify_s3_log_key'),
     file_format='JSON',
-    log_json_file=LOG_JSON_FILE,
+    log_json_file=Variable.get('sparkify_s3_log_json_path_key'),
     redshift_conn_id='redshift',
     aws_credential_id='aws_credentials',
     dag=dag,
@@ -65,8 +60,8 @@ stage_events_to_redshift = StageToRedshiftOperator(
 stage_songs_to_redshift = StageToRedshiftOperator(
     task_id='Stage_songs',
     table_name='staging_songs',
-    s3_bucket=S3_BUCKET,
-    s3_key=S3_SONG_KEY,
+    s3_bucket=Variable.get('sparkify_s3_bucket'),
+    s3_key=Variable.get('sparkify_s3_song_key'),
     file_format='JSON',
     redshift_conn_id='redshift',
     aws_credential_id='aws_credentials',

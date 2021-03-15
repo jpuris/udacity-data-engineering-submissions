@@ -5,17 +5,19 @@ from airflow.utils.decorators import apply_defaults
 
 
 class StageToRedshiftOperator(BaseOperator):
-    ''' TODO: docstring '''
+    """
+    TODO: docstring
+    """
 
     ui_color = '#00aae4'
 
-    copy_query = '''
+    copy_query = """
         COPY {}
         FROM '{}'
         ACCESS_KEY_ID '{}'
         SECRET_ACCESS_KEY '{}'
         FORMAT AS json '{}';
-    '''
+    """
 
     @apply_defaults
     def __init__(

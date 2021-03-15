@@ -4,7 +4,9 @@ from airflow.utils.decorators import apply_defaults
 
 
 class LoadDimensionOperator(BaseOperator):
-    ''' TODO: docstring '''
+    """
+    TODO: docstring
+    """
 
     ui_color = '#660066'
 

@@ -9,12 +9,13 @@ def load_dim_subdag(
     sql_statement,
     delete_load,
     table_name,
-    *args,
     **kwargs,
 ):
-    ''' TODO: docstring'''
+    """
+    TODO: docstring
+    """
 
-    dag = DAG(f'{parent_dag_name}.{task_id}', *args, **kwargs)
+    dag = DAG(f'{parent_dag_name}.{task_id}', **kwargs)
 
     load_dimension_table = LoadDimensionOperator(
         task_id=task_id,

@@ -1,7 +1,7 @@
 class SqlQueries:
-    '''Collection of SQL queries to be used in Sparkify ETL pipeline'''
+    """Collection of SQL queries to be used in Sparkify ETL pipeline"""
 
-    songplay_table_insert = '''
+    songplay_table_insert = """
     INSERT INTO songplays
     SELECT
         md5(events.sessionid || events.start_time) songplay_id,
@@ -22,9 +22,9 @@ class SqlQueries:
     LEFT JOIN staging_songs songs ON events.song = songs.title
         AND events.artist = songs.artist_name
         AND events.length = songs.duration
-    '''
+    """
 
-    user_table_insert = '''
+    user_table_insert = """
     INSERT INTO users
     SELECT distinct
         userid,
@@ -36,9 +36,9 @@ class SqlQueries:
         staging_events
     WHERE
         page='NextSong'
-    '''
+    """
 
-    song_table_insert = '''
+    song_table_insert = """
     INSERT INTO songs
     SELECT distinct
         song_id,
@@ -48,9 +48,9 @@ class SqlQueries:
         duration
     FROM
         staging_songs
-    '''
+    """
 
-    artist_table_insert = '''
+    artist_table_insert = """
     INSERT INTO artists
     SELECT distinct
         artist_id,
@@ -60,9 +60,9 @@ class SqlQueries:
         artist_longitude
     FROM
         staging_songs
-    '''
+    """
 
-    time_table_insert = '''
+    time_table_insert = """
     INSERT INTO "time"
     SELECT
         start_time,
@@ -73,4 +73,4 @@ class SqlQueries:
         extract(year from start_time),
         extract(dayofweek from start_time)
     FROM songplays
-    '''
+    """
